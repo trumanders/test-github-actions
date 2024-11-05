@@ -21,8 +21,6 @@ public class App {
     }
 
     private static void initialize() throws InvalidExpressionException {
-        userInputExpression = scanner.nextLine();
-        expression = new Expression(userInputExpression);
-        expressionHandler = new ExpressionHandler(expression);
+        expressionHandler = new ExpressionHandler(new Expression(scanner.nextLine()));
     }
 }
