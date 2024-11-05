@@ -12,6 +12,7 @@ public class App {
         while(true) {
             try {
                 initialize();
+                System.out.println("Enter expression > ");
                 System.out.println(expressionHandler.getResult());
             }
             catch (InvalidExpressionException e) {
