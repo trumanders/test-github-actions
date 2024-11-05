@@ -17,8 +17,8 @@ public class Expression {
     }
 
     private void extractExpressionDoubles() {
-        numbers = Arrays.stream(
-                        expression.split("[+\\-*/\\s]+"))
+        numbers = Arrays.stream(expression
+                        .split("[+\\-*/\\s]+"))
                 .filter(element -> !element.isEmpty())
                 .map(Double::parseDouble)
                 .toList();

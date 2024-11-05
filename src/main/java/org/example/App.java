@@ -10,20 +10,19 @@ public class App {
 
     public static void main( String[] args ) {
         while(true) {
-            initialize();
-            System.out.println(expressionHandler.getResult());
+            try {
+                initialize();
+                System.out.println(expressionHandler.getResult());
+            }
+            catch (InvalidExpressionException e) {
+                System.out.println(e.getMessage());
+            }
         }
     }
 
-    private static void initialize() {
+    private static void initialize() throws InvalidExpressionException {
         userInputExpression = scanner.nextLine();
-
-        try {
-            expression = new Expression(userInputExpression);
-        }
-        catch (InvalidExpressionException e) {
-            System.out.println(e.getMessage());
-        }
+        expression = new Expression(userInputExpression);
         expressionHandler = new ExpressionHandler(expression);
     }
 }
