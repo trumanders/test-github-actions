@@ -4,15 +4,26 @@ import java.util.Scanner;
 
 public class App {
     static Scanner scanner = new Scanner(System.in);
+    static Expression expression;
+    static ExpressionHandler expressionHandler;
+    static private String userInputExpression;
+
     public static void main( String[] args ) {
-        ExpressionHandler expressionHandler = new ExpressionHandler();
         while(true) {
-            try {
-                System.out.println(expressionHandler.getResult(scanner.nextLine()));
-            }
-            catch (InvalidExpressionException e) {
-                System.out.println(e.getMessage());
-            }
+            initialize();
+            System.out.println(expressionHandler.getResult());
         }
+    }
+
+    private static void initialize() {
+        userInputExpression = scanner.nextLine();
+
+        try {
+            expression = new Expression(userInputExpression);
+        }
+        catch (InvalidExpressionException e) {
+            System.out.println(e.getMessage());
+        }
+        expressionHandler = new ExpressionHandler(expression);
     }
 }
