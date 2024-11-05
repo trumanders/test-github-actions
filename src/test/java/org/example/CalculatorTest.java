@@ -22,12 +22,12 @@ public class CalculatorTest {
     @MethodSource("additionTestCasesArguments")
     @DisplayName("Addition test cases:")
     public void testAddition(double expected, double a, double b, String testCaseName) {
-        assertEquals(expected, calculator.getSumOf(a, b), testCaseName);
+        assertEquals(expected, calculator.getSumOf(a, a), testCaseName);
     }
 
     static Stream<Arguments> additionTestCasesArguments() {
         return Stream.of(
-                Arguments.of(0,0,0, "0 + 0 = 0"),
+                Arguments.of(3,1,2, "1 + 2 = 3"),
                 Arguments.of(-1,0,-1, "0 + -1 = -1"),
                 Arguments.of(1,0,1, "0 + 1 = 1"),
                 Arguments.of(Double.POSITIVE_INFINITY, Double.MAX_VALUE, Double.MAX_VALUE, "Max value + max value"),
