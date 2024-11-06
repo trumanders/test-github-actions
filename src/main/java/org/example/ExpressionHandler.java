@@ -7,7 +7,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class ExpressionHandler {
-    private Calculator calculator = new Calculator();
+    final private Calculator calculator = new Calculator();
     private Expression expression;
 
     public ExpressionHandler(Expression expression) {
@@ -20,20 +20,13 @@ public class ExpressionHandler {
         for (int i = 1; i < expression.getNumbers().size(); i++) {
             double currentValue = expression.getNumbers().get(i);
 
-            switch (expression.getOperators().get(i - 1)) {
-                case "+":
-                    result = calculator.getSumOf(result, currentValue);
-                    break;
-                case "-":
-                    result = calculator.getDifferenceOf(result, currentValue);
-                    break;
-                case "*":
-                    result = calculator.getProductOf(result, currentValue);
-                    break;
-                case "/":
-                    result = calculator.getQuotientOf(result, currentValue);
-                    break;
-            }
+            result = switch (expression.getOperators().get(i - 1)) {
+                case "+" -> calculator.getSumOf(result, currentValue);
+                case "-" -> calculator.getDifferenceOf(result, currentValue);
+                case "*" -> calculator.getProductOf(result, currentValue);
+                case "/" -> calculator.getQuotientOf(result, currentValue);
+                default -> result;
+            };
         }
         return result;
     }
