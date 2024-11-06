@@ -7,8 +7,6 @@ import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
 import java.util.stream.Stream;
 
-import org.junit.Test;
-
 
 public class CalculatorTest {
     private Calculator calculator;

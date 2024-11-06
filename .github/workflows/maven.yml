@@ -28,4 +28,4 @@ jobs:
         distribution: 'temurin'
         cache: maven
     - name: Verify and test with Maven
-      run: mvn -B package --file pom.xml
+      run: mvn -B test --file pom.xml
