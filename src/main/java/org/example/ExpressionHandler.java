@@ -15,7 +15,7 @@ public class ExpressionHandler {
     }
 
     public double getResult() {
-        double result = this.expression.getNumbers().get(0);
+        double result = this.expression.getNumbers().getFirst();
 
         for (int i = 1; i < expression.getNumbers().size(); i++) {
             double currentValue = expression.getNumbers().get(i);
