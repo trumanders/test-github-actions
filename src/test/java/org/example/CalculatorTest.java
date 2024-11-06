@@ -5,14 +5,15 @@ import org.junit.jupiter.api.*;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
-
 import java.util.stream.Stream;
+
+import org.junit.Test;
 
 
 public class CalculatorTest {
     private Calculator calculator;
 
-    @BeforeEach
+    @Test
     public void setup() {
         calculator = new Calculator();
     }
@@ -22,7 +23,7 @@ public class CalculatorTest {
     @MethodSource("additionTestCasesArguments")
     @DisplayName("Addition test cases:")
     public void testAddition(double expected, double a, double b, String testCaseName) {
-        assertEquals(expected, calculator.getSumOf(a, b), testCaseName);
+        assertEquals(expected, calculator.getSumOf(a, a), testCaseName);
     }
 
     static Stream<Arguments> additionTestCasesArguments() {
