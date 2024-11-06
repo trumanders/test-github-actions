@@ -11,7 +11,7 @@ import java.util.stream.Stream;
 public class CalculatorTest {
     private Calculator calculator;
 
-    @Test
+    @BeforeEach
     public void setup() {
         calculator = new Calculator();
     }
