@@ -22,7 +22,7 @@ public class CalculatorTest {
     @MethodSource("additionTestCasesArguments")
     @DisplayName("Addition test cases:")
     public void testAddition(double expected, double a, double b, String testCaseName) {
-        assertEquals(expected, calculator.getSumOf(a, b), testCaseName);
+        assertEquals(expected, calculator.getSumOf(a, a), testCaseName);
     }
 
     static Stream<Arguments> additionTestCasesArguments() {
