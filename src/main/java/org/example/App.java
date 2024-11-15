@@ -22,8 +22,6 @@ import java.util.Scanner;
  * the expression to produce the result.
  */
 
-/* TEST PUSH */
-
 public class App {
     static Scanner scanner = new Scanner(System.in);
     static Expression expression;
